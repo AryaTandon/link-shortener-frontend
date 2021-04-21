@@ -20,7 +20,7 @@ function App() {
       console.log(e.target[2].value)
       const originalURL = e.target[0].value;
       const customURL = e.target[2].value;
-      const resOfPost = await fetch("http://localhost:4000/", {
+      const resOfPost = await fetch("https://arya-url.herokuapp.com", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ function App() {
 
   const getLastTenLinks = async () => {
     try {
-      const resOfPost = await fetch("http://localhost:4000/", {
+      const resOfPost = await fetch("https://arya-url.herokuapp.com", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json'
@@ -71,13 +71,13 @@ function App() {
         <input className="form_submit"type="submit" />
     </form>
     <div className="text_area">
-      { shortenedURL ? <h3><a href={`http://localhost:4000/${shortenedURL}`}>http://localhost:4000/{shortenedURL}</a></h3> : <></>}
+      { shortenedURL ? <h3>Your latest shortened URL: <a href={`https://arya-url.herokuapp.com/${shortenedURL}`}>https://arya-url.herokuapp.com/{shortenedURL}</a></h3> : <></>}
       <br />
       { linksArray ? linksArray.map(({id, shortened_url, original_url}) => {
         return (
           <div key={id}>
-            <div className="text_area">
-              Shortened URL: <a href={`http://localhost:4000/${shortened_url}`}>http://localhost:4000/{shortened_url}</a>
+            <div className="text_area"><br />
+              Shortened URL: <a href={`https://arya-url.herokuapp.com/${shortened_url}`}>https://arya-url.herokuapp.com/{shortened_url}</a> <br/>
               Original URL: <a href={`${original_url}`}>{original_url}</a>
             </div>
             <br />
